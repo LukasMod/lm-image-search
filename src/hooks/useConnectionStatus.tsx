@@ -10,8 +10,6 @@ export function useConnectionStatus() {
   const net = useNetInfo()
 
   useEffect(() => {
-    console.log("TEST USE EFFECT")
-
     if (net.isInternetReachable === false) {
       toast.error("There is no internet connection", {
         duration: 5000, // 5s

@@ -7,7 +7,6 @@ export const getImages = async ({
   query: string
   page: number
 }) => {
-  console.log("TEST fetchImage START query:", query) //TODO:
   const response = await api.getImages({ query, page })
   if (response.kind === "ok") {
     return {
