@@ -8,7 +8,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "test:e2e": "maestro test ./e2e/app.yaml"
+    "test:e2e": "maestro test ./e2e/app.yaml",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@backpackapp-io/react-native-toast": "^0.10.0",
