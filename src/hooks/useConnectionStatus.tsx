@@ -6,6 +6,11 @@ import {
 } from "@react-native-community/netinfo"
 import { useEffect } from "react"
 
+/**
+ * Use to show toast (in app notifications), when
+ * 1. there is no connection or
+ * 2. there is cellular connection and it's weaker than 4g
+ */
 export function useConnectionStatus() {
   const net = useNetInfo()
 

@@ -3,6 +3,7 @@ import { ApiGetUnsplashImage, UnsplashImage } from "../../types"
 import type { ApiConfig } from "./api.types"
 import { GeneralApiProblem, getGeneralApiProblem } from "./apiProblem"
 
+//TODO: move to env
 // const UNSPLASH_ACCESS_KEY = "ToqfSL8J6uEJ-XLTUDYpUPPm_ZB4Yaeb7fgdJhRWGDg"
 const UNSPLASH_ACCESS_KEY = "bhAmnP7lxP1iNWn6ihYkdp02CTNDEgRzxXLQ3azg09M"
 

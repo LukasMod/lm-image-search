@@ -16,6 +16,7 @@ export const Text = (props: TextProps) => {
     ...rest
   } = props
 
+  //TODO: add i18n as "tx" prop 
   const content = text || children
 
   const style = presets[preset] || presets.default

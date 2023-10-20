@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 /**
- *
+ * Use to avoid unnecessary requests while typing
  * @param value any kind of value to delay, generic type
  * @param delay ms, default 750 ms
  * @returns
