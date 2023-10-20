@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native"
-import { colors, spacing } from "../../theme"
+import { spacing } from "../../theme"
 
 export default StyleSheet.create({
   container: {
@@ -18,11 +18,11 @@ export default StyleSheet.create({
     margin: spacing.sm,
     textAlign: "center",
   },
-  emptyQueryContainer: {
+  initialContainer: {
     flex: 1,
     justifyContent: "center",
   },
-  emptyQueryText: {
+  initialText: {
     textAlign: "center",
   },
 })

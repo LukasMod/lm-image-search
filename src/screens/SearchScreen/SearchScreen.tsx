@@ -1,39 +1,29 @@
 import { Image } from "expo-image"
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { FlatList, RefreshControl, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { useInfiniteQuery } from "react-query"
 import { EmptyState, Loader, Text, TextField } from "../../components"
-import { useDebounce } from "../../hooks"
-import { getImages } from "../../services"
 import { colors } from "../../theme"
 import { UnsplashImage } from "../../types"
+import { useLogic } from "./logic"
 import styles from "./styles"
 
-export const SearchScreen = () => {
-  const [query, setQuery] = useState("")
-  const debounceQuery = useDebounce(query)
+const keyExtractor = (item: UnsplashImage) => item.id
 
+export const SearchScreen = () => {
   const {
-    data,
-    fetchNextPage,
+    imagesData,
     isFetching,
-    hasNextPage,
-    isFetchingNextPage,
     isError,
     error,
     refetch,
     isRefetching,
-  } = useInfiniteQuery(
-    ["images", debounceQuery],
-    ({ pageParam = 1 }) => getImages({ query: debounceQuery, page: pageParam }),
-    {
-      getNextPageParam: (lastPage, pages) =>
-        lastPage.page < lastPage.totalPages ? lastPage.page + 1 : null,
-      retry: 1,
-      enabled: !!debounceQuery,
-    }
-  )
+    onChangeHandler,
+    onEndReached,
+    onCancelPress,
+    query,
+    debounceQuery,
+  } = useLogic()
 
   const renderItem = useCallback(
     ({ item, index }: { item: UnsplashImage; index: number }) => {
@@ -70,20 +60,6 @@ export const SearchScreen = () => {
     return <EmptyState />
   }, [isFetching])
 
-  const onChangeHandler = (text: string) => {
-    setQuery(text)
-  }
-
-  const onEndReached = () => {
-    if (!isFetchingNextPage && hasNextPage) {
-      fetchNextPage()
-    }
-  }
-
-  const onCancelPress = () => {
-    setQuery("")
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <TextField
@@ -96,9 +72,9 @@ export const SearchScreen = () => {
       {debounceQuery ? (
         <FlatList
           contentContainerStyle={styles.contentContainerStyle}
-          data={data?.pages?.flatMap((page) => page.images)}
+          data={imagesData}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={keyExtractor}
           onEndReached={onEndReached}
           onEndReachedThreshold={0.8}
           refreshControl={
@@ -112,10 +88,10 @@ export const SearchScreen = () => {
           ListEmptyComponent={renderEmpty}
         />
       ) : (
-        <View style={styles.emptyQueryContainer}>
+        <View style={styles.initialContainer}>
           <Text
             text="Enter above the image you're looking for!"
-            style={styles.emptyQueryText}
+            style={styles.initialText}
             preset="header"
           />
         </View>
