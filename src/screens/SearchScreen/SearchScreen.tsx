@@ -33,6 +33,7 @@ export const SearchScreen = () => {
           style={[styles.image, { aspectRatio: item.aspectRatio }]}
           contentFit="contain"
           testID={`image-${index}`}
+          transition={500}
         />
       )
     },
