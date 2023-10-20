@@ -5,6 +5,9 @@ export default StyleSheet.create({
   container: {
     flexGrow: 1,
   },
+  contentContainerStyle: {
+    gap: spacing.xxs,
+  },
   image: {
     width: "100%",
   },

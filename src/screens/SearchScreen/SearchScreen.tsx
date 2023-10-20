@@ -1,14 +1,14 @@
 import { Image } from "expo-image"
 import { useCallback, useState } from "react"
-import { ActivityIndicator, FlatList, RefreshControl, View } from "react-native"
+import { FlatList, RefreshControl, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useInfiniteQuery } from "react-query"
 import { EmptyState, Loader, Text, TextField } from "../../components"
 import { useDebounce } from "../../hooks"
 import { getImages } from "../../services"
+import { colors } from "../../theme"
 import { UnsplashImage } from "../../types"
 import styles from "./styles"
-import { colors } from "../../theme"
 
 export const SearchScreen = () => {
   const [query, setQuery] = useState("")
@@ -90,6 +90,7 @@ export const SearchScreen = () => {
       />
       {debounceQuery ? (
         <FlatList
+          contentContainerStyle={styles.contentContainerStyle}
           data={data?.pages?.flatMap((page) => page.images)}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}

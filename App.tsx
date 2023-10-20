@@ -3,6 +3,10 @@ import { SearchScreen } from "./src/screens"
 import { colors } from "./src/theme"
 import { StyleSheet } from "react-native"
 import { QueryClient, QueryClientProvider } from "react-query"
+import { useConnectionStatus } from "./src/hooks/useConnectionStatus"
+import { Toasts } from "@backpackapp-io/react-native-toast"
+import "react-native-gesture-handler"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -13,17 +17,23 @@ const queryClient = new QueryClient({
 })
 
 export default function App() {
+  useConnectionStatus()
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <SafeAreaProvider style={styles.container}>
-        <SearchScreen />
-      </SafeAreaProvider>
-    </QueryClientProvider>
+    <GestureHandlerRootView style={styles.container}>
+      <QueryClientProvider client={queryClient}>
+        <SafeAreaProvider>
+          <SearchScreen />
+          <Toasts />
+        </SafeAreaProvider>
+      </QueryClientProvider>
+    </GestureHandlerRootView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: colors.background,
   },
 })

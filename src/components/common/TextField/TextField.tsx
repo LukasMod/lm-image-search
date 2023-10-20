@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import {
   StyleProp,
   TextInput,
@@ -20,9 +20,17 @@ export const TextField = ({
   onCancelPress,
   ...rest
 }: TextFieldProps) => {
+  const inputRef = useRef<TextInput>(null)
+
+  const onPressCancelIcon = () => {
+    onCancelPress?.()
+    inputRef.current?.blur()
+  }
+
   return (
     <View style={[styles.inputWrapperStyle, containerStyle]}>
       <TextInput
+        ref={inputRef}
         placeholderTextColor={colors.textDim}
         autoCapitalize="none"
         returnKeyType="search"
@@ -32,7 +40,7 @@ export const TextField = ({
       {rest.value && onCancelPress && (
         <Icon
           icon="cancel"
-          onPress={onCancelPress}
+          onPress={onPressCancelIcon}
           containerStyle={styles.iconContainer}
         />
       )}
