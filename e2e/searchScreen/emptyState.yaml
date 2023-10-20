@@ -1,0 +1,7 @@
+appId: com.lm.imagesearch
+---
+# searching unknown query
+- tapOn: "Search image"
+- inputText: "qwertyuiop12345"
+- assertVisible: "We know it's sad, but there is no results. Sorry!"
+

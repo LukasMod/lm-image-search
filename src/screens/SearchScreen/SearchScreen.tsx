@@ -35,15 +35,19 @@ export const SearchScreen = () => {
     }
   )
 
-  const renderItem = useCallback(({ item }: { item: UnsplashImage }) => {
-    return (
-      <Image
-        source={{ uri: item.urls.small }}
-        style={[styles.image, { aspectRatio: item.aspectRatio }]}
-        contentFit="contain"
-      />
-    )
-  }, [])
+  const renderItem = useCallback(
+    ({ item, index }: { item: UnsplashImage; index: number }) => {
+      return (
+        <Image
+          source={{ uri: item.urls.small }}
+          style={[styles.image, { aspectRatio: item.aspectRatio }]}
+          contentFit="contain"
+          testID={`image-${index}`}
+        />
+      )
+    },
+    []
+  )
 
   const renderFooter = useCallback(() => {
     if (isFetching) {

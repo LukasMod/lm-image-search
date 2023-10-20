@@ -1,0 +1,10 @@
+appId: com.lm.imagesearch
+---
+# initial state
+- assertVisible: "Search image"
+- assertVisible: "Enter above the image you're looking for!"
+
+- runFlow: searching.yaml
+- runFlow: clearInput.yaml
+- runFlow: emptyState.yaml
+

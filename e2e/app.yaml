@@ -1,0 +1,9 @@
+appId: com.lm.imagesearch
+---
+- launchApp:
+    appId: "com.lm.imagesearch"
+    stopApp: true
+    clearState: true
+
+- runFlow: searchScreen/searchScreen.yaml
+

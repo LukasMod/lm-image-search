@@ -1,0 +1,15 @@
+appId: com.lm.imagesearch
+---
+# searching and infinite list
+- tapOn: "Search image"
+- inputText: "car"
+- hideKeyboard
+- assertVisible:
+    id: "image-0"
+- scrollUntilVisible:
+    element:
+      id: "image-8"
+    direction: DOWN
+    speed: 80
+    visibilityPercentage: 50
+

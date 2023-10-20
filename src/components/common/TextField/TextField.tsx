@@ -42,6 +42,7 @@ export const TextField = ({
           icon="cancel"
           onPress={onPressCancelIcon}
           containerStyle={styles.iconContainer}
+          testID="cancelIcon"
         />
       )}
     </View>

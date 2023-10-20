@@ -1,0 +1,8 @@
+appId: com.lm.imagesearch
+---
+# clearing input
+- assertVisible:
+    id: "cancelIcon"
+- tapOn:
+    id: "cancelIcon"
+
