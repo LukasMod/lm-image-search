@@ -5,5 +5,6 @@ export interface UnsplashImage {
     regular: string
     small: string
   }
+  aspectRatio: number
 }
 

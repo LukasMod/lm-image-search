@@ -3,7 +3,8 @@ import { ApiGetUnsplashImage, UnsplashImage } from "../../types"
 import type { ApiConfig } from "./api.types"
 import { GeneralApiProblem, getGeneralApiProblem } from "./apiProblem"
 
-const UNSPLASH_ACCESS_KEY = "ToqfSL8J6uEJ-XLTUDYpUPPm_ZB4Yaeb7fgdJhRWGDg"
+// const UNSPLASH_ACCESS_KEY = "ToqfSL8J6uEJ-XLTUDYpUPPm_ZB4Yaeb7fgdJhRWGDg"
+const UNSPLASH_ACCESS_KEY = "bhAmnP7lxP1iNWn6ihYkdp02CTNDEgRzxXLQ3azg09M"
 
 export const DEFAULT_API_CONFIG: ApiConfig = {
   url: "https://api.unsplash.com",
@@ -29,12 +30,15 @@ export class Api {
   async getImages({
     query,
     page = 1,
-    perPage = 2,
+    perPage = 6,
   }: {
     query: string
     page?: number
     perPage?: number
-  }): Promise<{ kind: "ok"; images: UnsplashImage[] } | GeneralApiProblem> {
+  }): Promise<
+    | { kind: "ok"; images: UnsplashImage[]; page: number; totalPages: number }
+    | GeneralApiProblem
+  > {
     const response: ApiResponse<ApiGetUnsplashImage> = await this.apisauce.get(
       `/search/photos`,
       { query, page, per_page: perPage }
@@ -55,10 +59,16 @@ export class Api {
               regular: el.urls.regular,
               small: el.urls.small,
             },
+            aspectRatio: el.width / el.height,
           }
         }) || []
 
-      return { kind: "ok", images }
+      return {
+        kind: "ok",
+        images,
+        page,
+        totalPages: response.data?.total_pages || 0,
+      }
     } catch (e) {
       if (e instanceof Error) {
         console.error(`Bad data: ${e.message}\n${response.data}`, e.stack)
