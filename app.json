@@ -9,15 +9,20 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#C76542"
     },
     "assetBundlePatterns": ["**/*"],
+    "primaryColor": "#C76542",
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.lm.imagesearch"
     },
     "android": {
-      "package": "com.lm.imagesearch"
+      "package": "com.lm.imagesearch",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#C76542"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
