@@ -8,7 +8,8 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { colors, spacing } from "../theme"
+import { colors, spacing } from "../../../theme"
+import styles from "./styles"
 
 export interface TextFieldProps extends TextInputProps {
   containerStyle?: StyleProp<ViewStyle>
@@ -21,43 +22,16 @@ export const TextField = ({ containerStyle, ...rest }: TextFieldProps) => {
     //   style={$containerStyles}
     //   onPress={focusInput}
     // >
-    <View style={[$inputWrapperStyle, containerStyle]}>
+    <View style={[styles.inputWrapperStyle, containerStyle]}>
       <TextInput
         // underlineColorAndroid={colors.transparent}
         placeholderTextColor={colors.textDim}
         autoCapitalize="none"
         returnKeyType="search"
-        style={$inputStyle}
+        style={styles.inputStyle}
         {...rest}
       />
     </View>
     // </TouchableOpacity>
   )
 }
-
-const $labelStyle: TextStyle = {
-  marginBottom: spacing.xs,
-}
-
-const $inputWrapperStyle: ViewStyle = {
-  flexDirection: "row",
-  alignItems: "flex-start",
-  borderWidth: 1,
-  borderRadius: 4,
-  backgroundColor: colors.palette.neutral200,
-  borderColor: colors.palette.neutral400,
-  overflow: "hidden",
-}
-
-const $inputStyle: TextStyle = {
-  flex: 1,
-  alignSelf: "stretch",
-  color: colors.text,
-  fontSize: 16,
-  height: 24,
-  paddingVertical: 0,
-  paddingHorizontal: 0,
-  marginVertical: spacing.xs,
-  marginHorizontal: spacing.sm,
-}
-

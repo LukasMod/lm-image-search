@@ -1,19 +1,13 @@
 import { Image } from "expo-image"
 import { useCallback, useState } from "react"
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native"
+import { ActivityIndicator, FlatList } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useInfiniteQuery } from "react-query"
-import { TextField } from "../components"
-import { useDebounce } from "../hooks"
-import { api } from "../services/api"
-import { spacing } from "../theme"
-import { UnsplashImage } from "../types"
+import { Text, TextField } from "../../components"
+import { useDebounce } from "../../hooks"
+import { api } from "../../services/api"
+import { UnsplashImage } from "../../types"
+import styles from "./styles"
 
 export const SearchScreen = () => {
   const [query, setQuery] = useState("bottle")
@@ -26,7 +20,7 @@ export const SearchScreen = () => {
     query: string
     page: number
   }) => {
-    console.log("TEST fetchImage START")
+    console.log("TEST fetchImage START") //TODO:
     const response = await api.getImages({ query, page })
     if (response.kind === "ok") {
       return {
@@ -35,20 +29,29 @@ export const SearchScreen = () => {
         totalPages: response.totalPages,
       }
     } else {
-      throw Error(`[ERROR] fetchImages: ${JSON.stringify(response)}`)
+      console.log(`[ERROR] fetchImages: ${JSON.stringify(response)}`)
+      throw Error(response.kind)
     }
   }
 
-  const { data, fetchNextPage, isFetching, hasNextPage, isFetchingNextPage } =
-    useInfiniteQuery(
-      ["images", debounceQuery],
-      ({ pageParam = 1 }) =>
-        fetchImages({ query: debounceQuery, page: pageParam }),
-      {
-        getNextPageParam: (lastPage, pages) =>
-          lastPage.page < lastPage.totalPages ? lastPage.page + 1 : null,
-      }
-    )
+  const {
+    data,
+    fetchNextPage,
+    isFetching,
+    hasNextPage,
+    isFetchingNextPage,
+    isError,
+    error,
+  } = useInfiniteQuery(
+    ["images", debounceQuery],
+    ({ pageParam = 1 }) =>
+      fetchImages({ query: debounceQuery, page: pageParam }),
+    {
+      getNextPageParam: (lastPage, pages) =>
+        lastPage.page < lastPage.totalPages ? lastPage.page + 1 : null,
+      retry: 1,
+    }
+  )
 
   const renderItem = useCallback(({ item }: { item: UnsplashImage }) => {
     return (
@@ -61,11 +64,28 @@ export const SearchScreen = () => {
   }, [])
 
   const renderFooter = () => {
-    return isFetching ? <ActivityIndicator /> : null
+    if (isFetching) {
+      return <ActivityIndicator />
+    }
+    if (isError) {
+      const errorMessage = `Something went wrong. Please try again later.\nError type: ${
+        error instanceof Error ? error?.message : ""
+      }`
+      return (
+        <Text text={errorMessage} preset="error" style={styles.errorText} />
+      )
+    }
+    return null
   }
 
   const onChangeHandler = (text: string) => {
     setQuery(text)
+  }
+
+  const onEndReached = () => {
+    if (!isFetchingNextPage && hasNextPage) {
+      fetchNextPage()
+    }
   }
 
   return (
@@ -76,36 +96,16 @@ export const SearchScreen = () => {
         onChangeText={onChangeHandler}
       />
       <FlatList
-        style={styles.container}
         contentContainerStyle={styles.contentContainerStyle}
         data={data?.pages?.flatMap((page) => page.images)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        onEndReached={() => {
-          if (!isFetchingNextPage && hasNextPage) {
-            fetchNextPage()
-          }
-        }}
-        onEndReachedThreshold={0.1}
-        // onRefresh={}
+        onEndReached={onEndReached}
+        onEndReachedThreshold={0.8}
+        // onRefresh={} //TODO:
         ListFooterComponent={renderFooter}
       />
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // backgroundColor: colors.error,
-  },
-  contentContainerStyle: {
-    gap: spacing.xxs,
-  },
-  image: {
-    width: "100%",
-  },
-  textFieldContainer: {
-    margin: spacing.sm,
-  },
-})
 
