@@ -31,6 +31,7 @@ export const SearchScreen = () => {
       getNextPageParam: (lastPage, pages) =>
         lastPage.page < lastPage.totalPages ? lastPage.page + 1 : null,
       retry: 1,
+      enabled: !!debounceQuery,
     }
   )
 
