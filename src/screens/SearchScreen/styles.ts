@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native"
 import { colors, spacing } from "../../theme"
 
 export default StyleSheet.create({
-  contentContainerStyle: {
-    backgroundColor: colors.background,
+  container: {
+    flexGrow: 1,
   },
   image: {
     width: "100%",
@@ -13,6 +13,13 @@ export default StyleSheet.create({
   },
   errorText: {
     margin: spacing.sm,
+    textAlign: "center",
+  },
+  emptyQueryContainer: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  emptyQueryText: {
     textAlign: "center",
   },
 })

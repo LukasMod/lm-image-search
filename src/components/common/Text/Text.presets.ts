@@ -10,6 +10,7 @@ export const presets = {
   default: BASE,
   bold: { ...BASE, fontWeight: "bold" } as TextStyle,
   error: { ...BASE, fontSize: 14, color: colors.error } as TextStyle,
+  header: { ...BASE, fontSize: 18, color: colors.text },
 }
 
 export type TextPresets = keyof typeof presets

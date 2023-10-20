@@ -3,35 +3,40 @@ import {
   StyleProp,
   TextInput,
   TextInputProps,
-  TextStyle,
-  TouchableOpacity,
   View,
   ViewStyle,
 } from "react-native"
-import { colors, spacing } from "../../../theme"
+import { colors } from "../../../theme"
 import styles from "./styles"
+import { Icon } from "../Icon/Icon"
 
 export interface TextFieldProps extends TextInputProps {
   containerStyle?: StyleProp<ViewStyle>
+  onCancelPress?: () => void
 }
 
-export const TextField = ({ containerStyle, ...rest }: TextFieldProps) => {
+export const TextField = ({
+  containerStyle,
+  onCancelPress,
+  ...rest
+}: TextFieldProps) => {
   return (
-    // <TouchableOpacity
-    //   activeOpacity={1}
-    //   style={$containerStyles}
-    //   onPress={focusInput}
-    // >
     <View style={[styles.inputWrapperStyle, containerStyle]}>
       <TextInput
-        // underlineColorAndroid={colors.transparent}
         placeholderTextColor={colors.textDim}
         autoCapitalize="none"
         returnKeyType="search"
         style={styles.inputStyle}
         {...rest}
       />
+      {rest.value && onCancelPress && (
+        <Icon
+          icon="cancel"
+          onPress={onCancelPress}
+          containerStyle={styles.iconContainer}
+        />
+      )}
     </View>
-    // </TouchableOpacity>
   )
 }
+

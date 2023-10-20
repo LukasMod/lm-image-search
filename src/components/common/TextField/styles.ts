@@ -3,11 +3,10 @@ import { colors, spacing } from "../../../theme"
 
 export default StyleSheet.create({
   labelStyle: {
-    marginBottom: spacing.xs,
+    marginBottom: spacing.md,
   },
   inputWrapperStyle: {
     flexDirection: "row",
-    alignItems: "flex-start",
     borderWidth: 1,
     borderRadius: 4,
     backgroundColor: colors.palette.neutral200,
@@ -24,6 +23,9 @@ export default StyleSheet.create({
     paddingHorizontal: 0,
     marginVertical: spacing.xs,
     marginHorizontal: spacing.sm,
+  },
+  iconContainer: {
+    marginHorizontal: spacing.xs,
   },
 })
 
