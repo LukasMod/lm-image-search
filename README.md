@@ -3,8 +3,9 @@ A simple photo search application thanks to the Unsplash api.
 
 ## Installation
 1. Clone repo: `git clone https://github.com/LukasMod/lm-image-search.git`
-2. `cd lm-image-search`
-3. `npm install`
+2. Add .env file with EXPO_PUBLIC_UNSPLASH_ACCESS_KEY=access_key_here
+3. `cd lm-image-search`
+4. `npm install`
 
 ### Android:
 5. `npm run android`

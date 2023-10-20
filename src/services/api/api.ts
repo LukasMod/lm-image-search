@@ -3,10 +3,6 @@ import { ApiGetUnsplashImage, UnsplashImage } from "../../types"
 import type { ApiConfig } from "./api.types"
 import { GeneralApiProblem, getGeneralApiProblem } from "./apiProblem"
 
-//TODO: move to env
-// const UNSPLASH_ACCESS_KEY = "ToqfSL8J6uEJ-XLTUDYpUPPm_ZB4Yaeb7fgdJhRWGDg"
-const UNSPLASH_ACCESS_KEY = "bhAmnP7lxP1iNWn6ihYkdp02CTNDEgRzxXLQ3azg09M"
-
 export const DEFAULT_API_CONFIG: ApiConfig = {
   url: "https://api.unsplash.com",
   timeout: 10000,
@@ -23,7 +19,7 @@ export class Api {
       timeout: this.config.timeout,
       headers: {
         Accept: "application/json",
-        Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
+        Authorization: `Client-ID ${process.env.EXPO_PUBLIC_UNSPLASH_ACCESS_KEY}`,
       },
     })
   }
