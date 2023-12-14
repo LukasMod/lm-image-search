@@ -1,8 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 LukasMod/lm-image-search is built on the following main stack:
-- [PonyDebugger](https://github.com/square/PonyDebugger) – Mobile Runtime Inspector
+
 - [Gradle](https://www.gradle.org/) – Java Build Tools
 - [Ruby](https://www.ruby-lang.org) – Languages
 - [Java](https://www.java.com) – Languages
@@ -15,17 +15,18 @@ LukasMod/lm-image-search is built on the following main stack:
 - [TypeScript](http://www.typescriptlang.org) – Languages
 - [React Native](http://facebook.github.io/) – Cross-Platform Mobile Development
 - [Babel](http://babeljs.io/) – JavaScript Compilers
-- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
+- [Expo](https://expo.dev/) – Cross-Platform Mobile Development
 - [Android OS](https://www.android.com) – Operating Systems
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 LukasMod/lm-image-search is built on the following main stack:
-- <img width='25' height='25' src='https://img.stackshare.io/service/729/Logo.png' alt='PonyDebugger'/> [PonyDebugger](https://github.com/square/PonyDebugger) – Mobile Runtime Inspector
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/975/gradlephant-social-black-bg.png' alt='Gradle'/> [Gradle](https://www.gradle.org/) – Java Build Tools
 - <img width='25' height='25' src='https://img.stackshare.io/service/989/ruby.png' alt='Ruby'/> [Ruby](https://www.ruby-lang.org) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/995/K85ZWV2F.png' alt='Java'/> [Java](https://www.java.com) – Languages
@@ -38,19 +39,20 @@ LukasMod/lm-image-search is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/1612/bynNY5dJ.jpg' alt='TypeScript'/> [TypeScript](http://www.typescriptlang.org) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/2699/KoK6gHzp.jpg' alt='React Native'/> [React Native](http://facebook.github.io/) – Cross-Platform Mobile Development
 - <img width='25' height='25' src='https://img.stackshare.io/service/2739/-1wfGjNw.png' alt='Babel'/> [Babel](http://babeljs.io/) – JavaScript Compilers
-- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/5795/default_683a3de22a6983c41f27b04348f4c7380c5e3c21.jpg' alt='Expo'/> [Expo](https://expo.dev/) – Cross-Platform Mobile Development
 - <img width='25' height='25' src='https://img.stackshare.io/service/9586/ZvmtaSXW_400x400.jpg' alt='Android OS'/> [Android OS](https://www.android.com) – Operating Systems
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [LukasMod/lm-image-search](https://github.com/LukasMod/lm-image-search)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|24<br/>Tools used|11/09/23 <br/>Report generated|
+|23<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -115,7 +117,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (3)
+## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (4)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1010/m8jf0po4imu8t5eemjdd.png' alt='Android SDK'>
@@ -126,11 +128,19 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/5795/default_683a3de22a6983c41f27b04348f4c7380c5e3c21.jpg' alt='Expo'>
+  <br>
+  <sub><a href="https://expo.dev/">Expo</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'>
   <br>
   <sub><a href="https://reactjs.org/">React</a></sub>
   <br>
-  <sub>v18.2.0</sub>
+  <sub>v0.72.6</sub>
 </td>
 
 <td align='center'>
@@ -181,7 +191,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (5)
+## Other (3)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/9586/ZvmtaSXW_400x400.jpg' alt='Android OS'>
@@ -200,22 +210,6 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/729/Logo.png' alt='PonyDebugger'>
-  <br>
-  <sub><a href="https://github.com/square/PonyDebugger">PonyDebugger</a></sub>
-  <br>
-  <sub></sub>
-</td>
-
-<td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'>
-  <br>
-  <sub><a href="https://en.wikipedia.org/wiki/Shell_script">Shell</a></sub>
-  <br>
-  <sub></sub>
-</td>
-
-<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'>
   <br>
   <sub><a href="https://github.com/mzabriskie/axios">axios</a></sub>
@@ -229,17 +223,23 @@ Full tech stack [here](/techstack.md)
 
 ## <img src='https://img.stackshare.io/group.svg' /> Open source packages (5)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (5)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (4)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
 |[@babel/core](https://www.npmjs.com/@babel/core)|v7.23.2|10/20/23|LukasMod |MIT|N/A|
 |[@types/react](https://www.npmjs.com/@types/react)|v18.2.34|10/20/23|LukasMod |MIT|N/A|
 |[babel-plugin-transform-remove-console](https://www.npmjs.com/babel-plugin-transform-remove-console)|v6.9.4|10/20/23|LukasMod |MIT|N/A|
-|[expo](https://www.npmjs.com/expo)|v49.0.16|10/20/23|LukasMod |MIT|N/A|
 |[react-native](https://www.npmjs.com/react-native)|v0.72.6|10/20/23|LukasMod |MIT|N/A|
+
+
+## <img width='24' height='24' src='https://img.stackshare.io/package_manager/977/default_9833f2ef0bbc2a946b4cc5e9307264033361076b.png'/> Apache Maven (1)
+
+|NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
+|:------|:------|:------|:------|:------|:------|
+|[com.facebook.fresco:fresco](https://github.com/facebook/fresco)|N/A|10/20/23|LukasMod |MIT|N/A|
 
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
